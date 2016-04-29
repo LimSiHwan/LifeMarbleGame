@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Dice\-Read-Me-.txt" />
-    <None Include="Assets\PBS Materials Variety Pack\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
