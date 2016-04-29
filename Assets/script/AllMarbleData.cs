@@ -6,9 +6,10 @@ public class AllMarbleData : MonoBehaviour {
     public static AllMarbleData _instance;
 
     public GameObject[] Marble;
+    public AnimationClip MarbleAnimation;
 
-	void Start () {
-
+	void Awake ()
+    {
         _instance = this;
 	}
 }

@@ -20,6 +20,7 @@ public class D_Manager {
     
     public bool DiceStart = false;
     public bool DiceValueChk = false;
+    public bool MoveChk = false;
     public int DiceValue;
     public void setDiceValue(int value)
     {
