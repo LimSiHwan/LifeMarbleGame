@@ -10,35 +10,35 @@ public class DiceClass : MonoBehaviour {
 	void Start ()
     {
         D_Rg = this.gameObject.GetComponent<Rigidbody>();
+        StartCoroutine(RotateDice());
 	}
-   
-	void Update()
+    IEnumerator RotateDice()
     {
-        if (Input.GetMouseButtonUp(0))
+        while (true)
         {
             if (D_Manager.Instance.DiceStart)
             {
-                Fire();
-                StartCoroutine(WaitStart());
-                D_Manager.Instance.DiceStart = false;
+                transform.Rotate(new Vector3(1, 1, 1) * 3f);
             }
+            yield return new WaitForEndOfFrame();
         }
-        if (D_Manager.Instance.DiceStart)
-        {
-            transform.Rotate(new Vector3(1, 1, 1) * 3f);
-        }
-	}
-    IEnumerator WaitStart()
+    }
+    public void DiceFire() //주사위 버튼을 클릭하면 여기로옵니다.
+    {
+        Fire();
+        StartCoroutine(WaitStart());
+        D_Manager.Instance.DiceStart = false;
+    }
+    IEnumerator WaitStart() // 주사위가 던져지고 2초뒤 주사위값을 체크합니다.
     {
         yield return new WaitForSeconds(2.0f);
         D_Manager.Instance.DiceValueChk = true;
     }
-    void Fire()
+    void Fire() //주사위를 던집니다.
     {
         D_Rg.WakeUp();
         D_Rg.useGravity = true;
         D_Rg.AddForce(Vector3.forward * forceAmount, forceMode);
-        //D_Rg.AddTorque(Random.onUnitSphere * torqueAmount, forceMode);
     }
     public void DiceInitSetting()
     {

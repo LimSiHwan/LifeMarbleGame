@@ -5,9 +5,8 @@ public class FloorColliderClass : MonoBehaviour {
 
     public float ForceAmount = 10.0f;
     public ForceMode forceMode;
-	void OnCollisionEnter(Collision Col)
+	void OnCollisionEnter(Collision Col) //바닥콜라이더에서 아래쪽으로 힘을 줍니다.
     {
-        Col.rigidbody.Sleep();
-        Col.rigidbody.AddForce(new Vector3(0, -1, 0) * ForceAmount, forceMode);
+        Col.rigidbody.AddForce(new Vector3(0, 1, 0) * ForceAmount, forceMode);
     }
 }

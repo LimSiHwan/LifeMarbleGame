@@ -6,7 +6,7 @@ public class StartControll : MonoBehaviour {
     public bool AnimationChk;
     MeshRenderer Mr;
     Animation anim;
-    void Start () {
+    void Start () { //애니메이션 스타트
         if (AnimationChk == true)
         {
             StartCoroutine(AnimationMarble());

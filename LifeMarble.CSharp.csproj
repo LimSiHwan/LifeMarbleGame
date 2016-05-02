@@ -77,6 +77,7 @@
     <Compile Include="Assets\script\AllMarbleData.cs" />
     <Compile Include="Assets\script\C_MoveClass.cs" />
     <Compile Include="Assets\script\D_Manager.cs" />
+    <Compile Include="Assets\script\D_UIClass.cs" />
     <Compile Include="Assets\script\DiceClass.cs" />
     <Compile Include="Assets\script\DiceValueClass.cs" />
     <Compile Include="Assets\script\DiceValueDisPlayClass.cs" />
