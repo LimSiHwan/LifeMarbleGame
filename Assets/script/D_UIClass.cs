@@ -10,7 +10,7 @@ public class D_UIClass : MonoBehaviour {
 	void Start () {
         DiceStart = GameObject.Find("DiceButton").gameObject.GetComponent<Button>();
         DiceStart.onClick.AddListener(() => { DiceGo(); });
-        diceClass = GameObject.Find("dice").GetComponent<DiceClass>();
+        diceClass = GameObject.Find("dice").GetComponentInChildren<DiceClass>();
     }
     void DiceGo() //주사위 클릭하면 주사위 발사
     {

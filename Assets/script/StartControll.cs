@@ -6,7 +6,14 @@ public class StartControll : MonoBehaviour {
     public bool AnimationChk;
     MeshRenderer Mr;
     Animation anim;
+    int RandomIndex;
+
+    GameObject Player_Ch;
     void Start () { //애니메이션 스타트
+        RandomIndex = Random.Range(1, 5);
+        Player_Ch = Instantiate(Resources.Load("Character/Player_0" + RandomIndex, typeof(GameObject))) as GameObject;
+        Player_Ch.transform.position = new Vector3(0, -0.65f, 0);
+        Player_Ch.name = "Player";
         if (AnimationChk == true)
         {
             StartCoroutine(AnimationMarble());

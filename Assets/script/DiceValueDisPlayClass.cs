@@ -6,9 +6,9 @@ public class DiceValueDisPlayClass : MonoBehaviour {
     public LayerMask dieValueColliderLayer = -1;
     public int CurrentValue = 1;
     RaycastHit hit;
-    
 	void Update ()
     {
+        Debug.DrawRay(transform.position, Vector3.up, Color.red);
         if (D_Manager.Instance.DiceValueChk)
         {
             if (Physics.Raycast(transform.position, Vector3.up, out hit, Mathf.Infinity, dieValueColliderLayer))

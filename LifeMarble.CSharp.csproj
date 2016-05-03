@@ -69,11 +69,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Dice\Plugins\Dice.cs" />
-    <Compile Include="Assets\Dice\Plugins\Die.cs" />
-    <Compile Include="Assets\Dice\Scripts\Dice\Die_d10.cs" />
-    <Compile Include="Assets\Dice\Scripts\Dice\Die_d6.cs" />
-    <Compile Include="Assets\Dice\scenes\Demo\AppDemo.cs" />
     <Compile Include="Assets\script\AllMarbleData.cs" />
     <Compile Include="Assets\script\C_MoveClass.cs" />
     <Compile Include="Assets\script\D_Manager.cs" />
@@ -83,9 +78,6 @@
     <Compile Include="Assets\script\DiceValueDisPlayClass.cs" />
     <Compile Include="Assets\script\FloorColliderClass.cs" />
     <Compile Include="Assets\script\StartControll.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Dice\-Read-Me-.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

@@ -13,6 +13,25 @@ public class C_MoveClass : MonoBehaviour {
         MoveIndex = 0;
         diceClass = GameObject.Find("dice").GetComponent<DiceClass>();
     }
+    void Ch_Rotation()
+    {
+        if (transform.position.x == AllMarbleData._instance.Marble[8].transform.position.x && transform.position.z == AllMarbleData._instance.Marble[8].transform.position.z)
+        {
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
+        if (transform.position.x == AllMarbleData._instance.Marble[16].transform.position.x && transform.position.z == AllMarbleData._instance.Marble[16].transform.position.z)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        if (transform.position.x == AllMarbleData._instance.Marble[24].transform.position.x && transform.position.z == AllMarbleData._instance.Marble[24].transform.position.z)
+        {
+            transform.rotation = Quaternion.Euler(0, 270, 0);
+        }
+        if (transform.position.x == AllMarbleData._instance.Marble[0].transform.position.x && transform.position.z == AllMarbleData._instance.Marble[0].transform.position.z)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
 	IEnumerator Ch_Move()
     {
         while (true)
@@ -26,12 +45,14 @@ public class C_MoveClass : MonoBehaviour {
                     {
                         if(TempMoveCount + i > 31) //ex) 31 + 1 이라면 32이다. 마블에선 32 == 0 이기때문에..
                         {
-                            transform.position = new Vector3(AllMarbleData._instance.Marble[MoveIndex].transform.position.x, 0.75f, AllMarbleData._instance.Marble[MoveIndex].transform.position.z);
+                            transform.position = new Vector3(AllMarbleData._instance.Marble[MoveIndex].transform.position.x, -0.65f, AllMarbleData._instance.Marble[MoveIndex].transform.position.z);
+                            Ch_Rotation();
                             MoveIndex++;
                             yield return new WaitForSeconds(0.5f);
                         } else // 한칸씩 움직이기위해서
                         {
-                            transform.position = new Vector3(AllMarbleData._instance.Marble[TempMoveCount + i].transform.position.x, 0.75f, AllMarbleData._instance.Marble[TempMoveCount + i].transform.position.z);
+                            transform.position = new Vector3(AllMarbleData._instance.Marble[TempMoveCount + i].transform.position.x, -0.65f, AllMarbleData._instance.Marble[TempMoveCount + i].transform.position.z);
+                            Ch_Rotation();
                             yield return new WaitForSeconds(0.5f);
                         }
                     }
@@ -41,7 +62,8 @@ public class C_MoveClass : MonoBehaviour {
                 {
                     for (int i = MoveCount-1; i >= 0; i--)
                     {
-                        transform.position = new Vector3(AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.x, 0.75f, AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.z);
+                        transform.position = new Vector3(AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.x, -0.65f, AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.z);
+                        Ch_Rotation();
                         yield return new WaitForSeconds(0.5f);
                     }
                     TempMoveCount = MoveCount + TempMoveCount;
