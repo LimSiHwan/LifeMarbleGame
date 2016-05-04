@@ -7,11 +7,21 @@ public class C_MoveClass : MonoBehaviour {
     int TempMoveCount;
     int MoveIndex;
     DiceClass diceClass;
-	void Start () {
+
+    Vector3 StartPos;
+    Vector3 EndPos;
+    
+    Animator _animator;
+    public AnimationCurve ac;
+
+    float time;
+    void Start () {
         StartCoroutine(Ch_Move());
         TempMoveCount = 0;
         MoveIndex = 0;
         diceClass = GameObject.Find("dice").GetComponent<DiceClass>();
+        _animator = gameObject.GetComponentInChildren<Animator>();
+
     }
     void Ch_Rotation()
     {
@@ -38,7 +48,10 @@ public class C_MoveClass : MonoBehaviour {
         {
             if (D_Manager.Instance.MoveChk)
             {
+                StartPos = gameObject.transform.position;
                 MoveCount = D_Manager.Instance.getDiceValue(); //주사위 값.
+                float deltatime = Time.deltaTime * 3.0f;
+                
                 if (TempMoveCount + MoveCount > 31) // 31칸 초과라면
                 {
                     for(int i = 1; i <= MoveCount; i++) 
@@ -60,11 +73,23 @@ public class C_MoveClass : MonoBehaviour {
                 }
                 else //미만 이라면
                 {
-                    for (int i = MoveCount-1; i >= 0; i--)
+                    for (int i = MoveCount - 1; i >= 0; i--)
                     {
-                        transform.position = new Vector3(AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.x, -0.65f, AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.z);
+                        EndPos = new Vector3(AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.x, -0.65f, AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.z);
+                        //transform.position = new Vector3(AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.x, -0.65f, AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.z);
+
+                        for (time = 0.0f; time <= 1.0f + deltatime; time += deltatime)
+                        {
+                            _animator.SetBool("Jump", true);
+                            transform.position = Vector3.Lerp(StartPos, EndPos, time);
+                            yield return new WaitForEndOfFrame();
+                            deltatime = Time.deltaTime * 3.0f;
+                        }
+                        
+                        StartPos = EndPos;
                         Ch_Rotation();
-                        yield return new WaitForSeconds(0.5f);
+                        _animator.SetBool("Jump", false);
+                        yield return new WaitForSeconds(0.1f);
                     }
                     TempMoveCount = MoveCount + TempMoveCount;
                 }
@@ -76,5 +101,4 @@ public class C_MoveClass : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
     }
-
 }

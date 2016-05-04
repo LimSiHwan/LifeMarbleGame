@@ -69,15 +69,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\script\AllMarbleData.cs" />
-    <Compile Include="Assets\script\C_MoveClass.cs" />
-    <Compile Include="Assets\script\D_Manager.cs" />
-    <Compile Include="Assets\script\D_UIClass.cs" />
-    <Compile Include="Assets\script\DiceClass.cs" />
-    <Compile Include="Assets\script\DiceValueClass.cs" />
-    <Compile Include="Assets\script\DiceValueDisPlayClass.cs" />
+    <Compile Include="Assets\script\DiceClass\DiceClass.cs" />
+    <Compile Include="Assets\script\DiceClass\DiceValueClass.cs" />
+    <Compile Include="Assets\script\DiceClass\DiceValueDisPlayClass.cs" />
     <Compile Include="Assets\script\FloorColliderClass.cs" />
+    <Compile Include="Assets\script\ManagerAndData\AllMarbleData.cs" />
+    <Compile Include="Assets\script\ManagerAndData\D_Manager.cs" />
+    <Compile Include="Assets\script\MoveClass\C_MoveClass.cs" />
     <Compile Include="Assets\script\StartControll.cs" />
+    <Compile Include="Assets\script\UIClass\D_UIClass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
