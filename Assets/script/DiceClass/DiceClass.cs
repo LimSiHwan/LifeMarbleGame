@@ -38,12 +38,12 @@ public class DiceClass : MonoBehaviour {
     {
         D_Rg.WakeUp();
         D_Rg.useGravity = true;
-        D_Rg.AddForce(Vector3.forward * forceAmount, forceMode);
+        D_Rg.AddForce(new Vector3(1,0,0) * forceAmount, forceMode);
     }
     public void DiceInitSetting()
     {
         D_Rg.Sleep();
         D_Rg.useGravity = false;
-        transform.position = new Vector3(4, 3, -7);
+        transform.position = new Vector3(-4.31f, 2.67f, 2.732258f);
     }
 }
