@@ -22,6 +22,7 @@ public class D_Manager {
     public bool DiceValueChk = false;
     public bool MoveChk = false;
     public int DiceValue;
+    
     public void setDiceValue(int value)
     {
         DiceValue = value;
@@ -29,5 +30,18 @@ public class D_Manager {
     public int getDiceValue()
     {
         return DiceValue;
+    }
+    public void CameraSetting()
+    {
+        if (DiceStart)
+        {
+            AllMarbleData._instance.Main_Camera.gameObject.SetActive(true);
+            AllMarbleData._instance.CH_Camera.gameObject.SetActive(false);
+        }
+        else
+        {
+            AllMarbleData._instance.Main_Camera.gameObject.SetActive(false);
+            AllMarbleData._instance.CH_Camera.gameObject.SetActive(true);
+        }
     }
 }

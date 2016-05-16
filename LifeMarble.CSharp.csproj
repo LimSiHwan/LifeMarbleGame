@@ -76,6 +76,7 @@
     <Compile Include="Assets\script\ManagerAndData\AllMarbleData.cs" />
     <Compile Include="Assets\script\ManagerAndData\D_Manager.cs" />
     <Compile Include="Assets\script\MoveClass\C_MoveClass.cs" />
+    <Compile Include="Assets\script\MoveClass\C_MoveRotationClass.cs" />
     <Compile Include="Assets\script\StartControll.cs" />
     <Compile Include="Assets\script\UIClass\D_UIClass.cs" />
   </ItemGroup>

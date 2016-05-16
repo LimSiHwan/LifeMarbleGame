@@ -8,16 +8,21 @@ public class StartControll : MonoBehaviour {
     Animation anim;
     int RandomIndex;
 
-    GameObject Player_Ch; //캐릭터 소환
+    GameObject Player_Ch;
     GameObject BackGround; //배경 소환
-    void Start () { //애니메이션 스타트
+    void Start () { 
+        // 캐릭터 랜덤 소환
         RandomIndex = Random.Range(1, 5);
         Player_Ch = Instantiate(Resources.Load("Character/Player_0" + RandomIndex, typeof(GameObject))) as GameObject;
         Player_Ch.transform.position = new Vector3(AllMarbleData._instance.Marble[0].transform.position.x, 0.23f, AllMarbleData._instance.Marble[0].transform.position.z);
         Player_Ch.name = "Player";
+        AllMarbleData._instance.CH_Camera.transform.parent = Player_Ch.transform;
+        AllMarbleData._instance.CH_Camera.transform.localPosition = new Vector3(-4.74f, 6f, -4.74f);
 
+        //뒷 배경 소환
         BackGround = Instantiate(Resources.Load("BackGround/backGround01", typeof(GameObject))) as GameObject;
         BackGround.transform.position = Vector3.zero;
+
         if (AnimationChk == true)
         {
             StartCoroutine(AnimationMarble());

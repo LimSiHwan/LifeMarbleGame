@@ -15,33 +15,17 @@ public class C_MoveClass : MonoBehaviour {
     public AnimationCurve ac;
 
     float time;
+
+    //자식오브젝트에 rotation
+    C_MoveRotationClass CMR;
     void Start () {
         StartCoroutine(Ch_Move());
         TempMoveCount = 0;
         MoveIndex = 0;
         diceClass = GameObject.Find("dice").GetComponent<DiceClass>();
         _animator = gameObject.GetComponentInChildren<Animator>();
+        CMR = gameObject.GetComponentInChildren<C_MoveRotationClass>();
 
-    }
-    void Ch_Rotation()
-    {
-        Debug.Log("aa");
-        if (transform.position.x == AllMarbleData._instance.Marble[8].transform.position.x && transform.position.z == AllMarbleData._instance.Marble[8].transform.position.z)
-        {
-            transform.rotation = Quaternion.Euler(0, 270, 0);
-        }
-        if (transform.position.x == AllMarbleData._instance.Marble[16].transform.position.x && transform.position.z == AllMarbleData._instance.Marble[16].transform.position.z)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        if (transform.position.x == AllMarbleData._instance.Marble[24].transform.position.x && transform.position.z == AllMarbleData._instance.Marble[24].transform.position.z)
-        {
-            transform.rotation = Quaternion.Euler(0, 90, 0);
-        }
-        if (transform.position.x == AllMarbleData._instance.Marble[0].transform.position.x && transform.position.z == AllMarbleData._instance.Marble[0].transform.position.z)
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
     }
 	IEnumerator Ch_Move()
     {
@@ -67,7 +51,7 @@ public class C_MoveClass : MonoBehaviour {
                                 deltatime = Time.deltaTime * 3.0f;
                             }
                             StartPos = EndPos;
-                            Ch_Rotation();
+                            CMR.Ch_Rotation();
                             _animator.SetBool("Jump", false);
                             MoveIndex++;
                             yield return new WaitForSeconds(0.1f);
@@ -82,7 +66,7 @@ public class C_MoveClass : MonoBehaviour {
                                 deltatime = Time.deltaTime * 3.0f;
                             }
                             StartPos = EndPos;
-                            Ch_Rotation();
+                            CMR.Ch_Rotation();
                             _animator.SetBool("Jump", false);
                             yield return new WaitForSeconds(0.1f);
                         }
@@ -102,7 +86,7 @@ public class C_MoveClass : MonoBehaviour {
                             deltatime = Time.deltaTime * 3.0f;
                         }
                         StartPos = EndPos;
-                        Ch_Rotation();
+                        CMR.Ch_Rotation();
                         _animator.SetBool("Jump", false);
                         yield return new WaitForSeconds(0.1f);
                     }
@@ -111,6 +95,7 @@ public class C_MoveClass : MonoBehaviour {
                 MoveIndex = 0; //다시 초기화해준다. 임이의 index값
                 D_Manager.Instance.MoveChk = false; //움직임이 끝났다.
                 D_Manager.Instance.DiceStart = true; //스타트 할 수 있다.
+                D_Manager.Instance.CameraSetting(); //카메라 다시 셋팅
                 diceClass.DiceInitSetting(); //주사위 다시 셋팅
             }
             yield return new WaitForEndOfFrame();

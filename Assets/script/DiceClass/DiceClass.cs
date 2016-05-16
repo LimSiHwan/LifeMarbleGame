@@ -33,6 +33,7 @@ public class DiceClass : MonoBehaviour {
     {
         yield return new WaitForSeconds(2.0f);
         D_Manager.Instance.DiceValueChk = true;
+        D_Manager.Instance.CameraSetting();
     }
     void Fire() //주사위를 던집니다.
     {
@@ -40,7 +41,7 @@ public class DiceClass : MonoBehaviour {
         D_Rg.useGravity = true;
         D_Rg.AddForce(new Vector3(1,0,0) * forceAmount, forceMode);
     }
-    public void DiceInitSetting()
+    public void DiceInitSetting() //주사위 다시 셋팅
     {
         D_Rg.Sleep();
         D_Rg.useGravity = false;

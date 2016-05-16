@@ -12,7 +12,9 @@ public class AllMarbleData : MonoBehaviour {
     Camera UICam;
     Canvas UICanvas;
     GameObject UIObject;
-   
+
+    public Camera Main_Camera;
+    public Camera CH_Camera;
     void Awake ()
     {
         _instance = this;
