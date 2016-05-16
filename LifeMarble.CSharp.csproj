@@ -69,9 +69,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\script\CameraZoomClass.cs" />
     <Compile Include="Assets\script\DiceClass\DiceClass.cs" />
     <Compile Include="Assets\script\DiceClass\DiceValueClass.cs" />
     <Compile Include="Assets\script\DiceClass\DiceValueDisPlayClass.cs" />
+    <Compile Include="Assets\script\EventClass\EventClass.cs" />
     <Compile Include="Assets\script\FloorColliderClass.cs" />
     <Compile Include="Assets\script\ManagerAndData\AllMarbleData.cs" />
     <Compile Include="Assets\script\ManagerAndData\D_Manager.cs" />

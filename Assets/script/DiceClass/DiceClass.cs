@@ -33,7 +33,7 @@ public class DiceClass : MonoBehaviour {
     {
         yield return new WaitForSeconds(2.0f);
         D_Manager.Instance.DiceValueChk = true;
-        D_Manager.Instance.CameraSetting();
+        D_Manager.Instance.CameraZoomChk = true;
     }
     void Fire() //주사위를 던집니다.
     {

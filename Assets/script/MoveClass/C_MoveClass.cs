@@ -92,10 +92,11 @@ public class C_MoveClass : MonoBehaviour {
                     }
                     TempMoveCount = MoveCount + TempMoveCount;
                 }
+                Debug.Log(TempMoveCount);
+                D_Manager.Instance.UI_ResultTextSetting(TempMoveCount); //테스트용 이벤트 텍스트
                 MoveIndex = 0; //다시 초기화해준다. 임이의 index값
                 D_Manager.Instance.MoveChk = false; //움직임이 끝났다.
                 D_Manager.Instance.DiceStart = true; //스타트 할 수 있다.
-                D_Manager.Instance.CameraSetting(); //카메라 다시 셋팅
                 diceClass.DiceInitSetting(); //주사위 다시 셋팅
             }
             yield return new WaitForEndOfFrame();

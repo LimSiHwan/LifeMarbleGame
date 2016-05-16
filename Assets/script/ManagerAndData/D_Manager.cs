@@ -21,6 +21,7 @@ public class D_Manager {
     public bool DiceStart = false;
     public bool DiceValueChk = false;
     public bool MoveChk = false;
+    public bool CameraZoomChk = false;
     public int DiceValue;
     
     public void setDiceValue(int value)
@@ -31,17 +32,16 @@ public class D_Manager {
     {
         return DiceValue;
     }
-    public void CameraSetting()
+    public void UI_ResultTextSetting(int MarbleCount)
     {
-        if (DiceStart)
+        AllMarbleData._instance.testImage.SetActive(true);
+        if (MarbleCount == 0)
         {
-            AllMarbleData._instance.Main_Camera.gameObject.SetActive(true);
-            AllMarbleData._instance.CH_Camera.gameObject.SetActive(false);
+            AllMarbleData._instance.UI_ResultText.text = "시작 지점입니다.";
         }
         else
         {
-            AllMarbleData._instance.Main_Camera.gameObject.SetActive(false);
-            AllMarbleData._instance.CH_Camera.gameObject.SetActive(true);
+            AllMarbleData._instance.UI_ResultText.text = EventClass._instance.eventText[MarbleCount - 1];
         }
     }
 }
