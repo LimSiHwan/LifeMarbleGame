@@ -4,9 +4,9 @@ using System.Collections;
 public class CameraZoomClass : MonoBehaviour {
 
     Camera Cam;
-    float delta = 0;
-    float delta1 = 0;
-    float smooth = 1.5f;
+    float ZoomIndelta = 0;
+    float ZoomOutdelta1 = 0;
+    public float smooth = 1.5f;
 
     Vector3 CamInitPos;
 
@@ -24,36 +24,37 @@ public class CameraZoomClass : MonoBehaviour {
         if (D_Manager.Instance.MoveChk)
         {
             CameraZoomIn();
+            ZoomOutdelta1 = 0;
             //transform.parent = PlayerPos.transform;
         }
         if (!D_Manager.Instance.MoveChk)
         {
             CameraZoomOut();
+            ZoomIndelta = 0;
         }
         //Cam.transform.position = Vector3.SmoothDamp(Cam.transform.position, new Vector3(PlayerPos.transform.position.x + 23.51f, PlayerPos.position.y + 31.51f, PlayerPos.transform.position.z + 20.86f), ref velocity, 30f);
     }
     void CameraZoomIn()
     {
-        delta += Time.deltaTime;
+        ZoomIndelta += Time.deltaTime;
 
-        Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 2.0f, delta/5);
-        Cam.transform.position = Vector3.Lerp(new Vector3(Cam.transform.position.x, Cam.transform.position.y, Cam.transform.position.z), new Vector3(PlayerPos.transform.position.x + 23.51f, PlayerPos.position.y + 31.51f, PlayerPos.transform.position.z + 20.86f), delta/10);
-       
-        if (delta > 1)
+        Cam.transform.position = Vector3.Lerp(new Vector3(Cam.transform.position.x, Cam.transform.position.y, Cam.transform.position.z), new Vector3(PlayerPos.transform.position.x + 23.51f, PlayerPos.position.y + 31.51f, PlayerPos.transform.position.z + 20.86f), ZoomIndelta);
+
+        Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 2.0f, ZoomIndelta);
+        if (ZoomIndelta > 1)
         {
-            delta = 0;
+            ZoomIndelta = 0;
         }
     }
     void CameraZoomOut()
     {
-        delta1 += Time.deltaTime;
+        ZoomOutdelta1 += Time.deltaTime;
 
-        Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 2.6f, delta1 / 5);
-        Cam.transform.position = Vector3.Lerp(new Vector3(Cam.transform.position.x, Cam.transform.position.y, Cam.transform.position.z), new Vector3(CamInitPos.x, CamInitPos.y, CamInitPos.z), delta1 / 2);
-
-        if (delta1 > 1)
+        Cam.transform.position = Vector3.Lerp(new Vector3(Cam.transform.position.x, Cam.transform.position.y, Cam.transform.position.z), new Vector3(CamInitPos.x, CamInitPos.y, CamInitPos.z), ZoomOutdelta1);
+        Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 2.6f, ZoomOutdelta1);
+        if (ZoomOutdelta1 > 1)
         {
-            delta1 = 0;
+            ZoomOutdelta1 = 0;
         }
     }
 }

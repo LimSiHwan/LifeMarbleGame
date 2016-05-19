@@ -8,10 +8,7 @@ public class StartControll : MonoBehaviour {
     Animation anim;
    
     GameObject BackGround; //배경 소환
-    void Start () { 
-        // 캐릭터 랜덤 소환
-        
-
+    void Start () {
         //뒷 배경 소환
         BackGround = Instantiate(Resources.Load("BackGround/backGround01", typeof(GameObject))) as GameObject;
         BackGround.transform.position = Vector3.zero;

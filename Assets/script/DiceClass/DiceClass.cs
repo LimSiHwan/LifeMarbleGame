@@ -31,9 +31,9 @@ public class DiceClass : MonoBehaviour {
     }
     IEnumerator WaitStart() // 주사위가 던져지고 2초뒤 주사위값을 체크합니다.
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.2f);
         D_Manager.Instance.DiceValueChk = true;
-        D_Manager.Instance.CameraZoomChk = true;
+        D_Manager.Instance.ObjectSetActiveFalse(AllMarbleData._instance.DiceButton); //주사위 버튼 비활성화
     }
     void Fire() //주사위를 던집니다.
     {

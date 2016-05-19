@@ -6,6 +6,8 @@ public class C_MoveClass : MonoBehaviour {
     int MoveCount;
     int TempMoveCount;
     int MoveIndex;
+    public float delaytime = 5.0f;
+
     DiceClass diceClass;
 
     Vector3 StartPos;
@@ -33,9 +35,10 @@ public class C_MoveClass : MonoBehaviour {
         {
             if (D_Manager.Instance.MoveChk)
             {
+                yield return new WaitForSeconds(0.5f);
                 StartPos = gameObject.transform.position;
                 MoveCount = D_Manager.Instance.getDiceValue(); //주사위 값.
-                float deltatime = Time.deltaTime * 3.0f;
+                float deltatime = Time.deltaTime * delaytime;
                 if (TempMoveCount + MoveCount > 31) // 31칸 초과라면
                 {
                     for(int i = 1; i <= MoveCount; i++) 
@@ -48,7 +51,7 @@ public class C_MoveClass : MonoBehaviour {
                                 _animator.SetBool("Jump", true);
                                 transform.position = Vector3.Lerp(StartPos, EndPos, time);
                                 yield return new WaitForEndOfFrame();
-                                deltatime = Time.deltaTime * 3.0f;
+                                deltatime = Time.deltaTime * delaytime;
                             }
                             StartPos = EndPos;
                             CMR.Ch_Rotation();
@@ -63,7 +66,7 @@ public class C_MoveClass : MonoBehaviour {
                                 _animator.SetBool("Jump", true);
                                 transform.position = Vector3.Lerp(StartPos, EndPos, time);
                                 yield return new WaitForEndOfFrame();
-                                deltatime = Time.deltaTime * 3.0f;
+                                deltatime = Time.deltaTime * delaytime;
                             }
                             StartPos = EndPos;
                             CMR.Ch_Rotation();
@@ -83,7 +86,7 @@ public class C_MoveClass : MonoBehaviour {
                             _animator.SetBool("Jump", true);
                             transform.position = Vector3.Lerp(StartPos, EndPos, time);
                             yield return new WaitForEndOfFrame();
-                            deltatime = Time.deltaTime * 3.0f;
+                            deltatime = Time.deltaTime * delaytime;
                         }
                         StartPos = EndPos;
                         CMR.Ch_Rotation();
@@ -92,12 +95,13 @@ public class C_MoveClass : MonoBehaviour {
                     }
                     TempMoveCount = MoveCount + TempMoveCount;
                 }
-                Debug.Log(TempMoveCount);
-                D_Manager.Instance.UI_ResultTextSetting(TempMoveCount); //테스트용 이벤트 텍스트
+                D_Manager.Instance.setTempMoveCount(TempMoveCount); //위치를 저장
                 MoveIndex = 0; //다시 초기화해준다. 임이의 index값
                 D_Manager.Instance.MoveChk = false; //움직임이 끝났다.
                 D_Manager.Instance.DiceStart = true; //스타트 할 수 있다.
                 diceClass.DiceInitSetting(); //주사위 다시 셋팅
+                D_Manager.Instance.UI_ResultTextSetting(TempMoveCount); //테스트용 이벤트 텍스트
+                AllMarbleData._instance.ResultTouchButton.SetActive(true); //터치 버튼 활성화
             }
             yield return new WaitForEndOfFrame();
         }

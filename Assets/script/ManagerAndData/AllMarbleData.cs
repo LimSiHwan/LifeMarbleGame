@@ -10,9 +10,10 @@ public class AllMarbleData : MonoBehaviour {
     public AnimationClip MarbleAnimation;
 
     //UI 카메라
-    Camera UICam;
+    public Camera UICam;
     Canvas UICanvas;
     GameObject UIObject;
+    public GameObject DiceButton; //주사위 버튼
     public GameObject testImage;
     public Text UI_ResultText;
 
@@ -20,6 +21,16 @@ public class AllMarbleData : MonoBehaviour {
     int RandomIndex;
     GameObject Player_Ch;
 
+    //결과 touch이벤트
+    public GameObject ResultTouchButton;
+
+    //능력치 UI
+    public Text ArtTxt;
+    public Text StrengthTxt;
+    public Text LovelyTxt;
+    public Text EduTxt;
+    public Text SkillTxt;
+    public Text MoneyTxt;
     void Awake ()
     {
         _instance = this;
@@ -33,11 +44,31 @@ public class AllMarbleData : MonoBehaviour {
         UICam.farClipPlane = 150;
         UICanvas = GameObject.Find("UICanvas").GetComponent<Canvas>();
         UIObject = GameObject.Find("UIObject");
+        DiceButton = GameObject.Find("DiceButton");
         UIObject.gameObject.AddComponent<D_UIClass>(); //UI 버튼 클래스 추가
         UICanvas.renderMode = RenderMode.ScreenSpaceCamera;//캔버스에 렌더모드를 카메라로 전환
         UICanvas.worldCamera = UICam;//카메라 셋팅
         UI_ResultText = GameObject.Find("EventText").GetComponent<Text>(); //테스트용 이벤트
+        ResultTouchButton = GameObject.Find("touchbutton");
         testImage = GameObject.Find("TestImage"); //테스트용 뒷배경이미지
         testImage.SetActive(false);
+
+        //능력치 Txt
+        ArtTxt = GameObject.Find("artTxt").GetComponent<Text>();
+        ArtTxt.text = PlayerPrefs.GetInt("art").ToString();
+        EduTxt = GameObject.Find("eduTxt").GetComponent<Text>();
+        EduTxt.text = PlayerPrefs.GetInt("edu").ToString();
+        StrengthTxt = GameObject.Find("strengthTxt").GetComponent<Text>();
+        StrengthTxt.text = PlayerPrefs.GetInt("strength").ToString();
+        SkillTxt = GameObject.Find("skillTxt").GetComponent<Text>();
+        SkillTxt.text = PlayerPrefs.GetInt("skill").ToString();
+        LovelyTxt = GameObject.Find("lovelyTxt").GetComponent<Text>();
+        LovelyTxt.text = PlayerPrefs.GetInt("lovely").ToString();
+        MoneyTxt = GameObject.Find("moneyTxt").GetComponent<Text>();
+        if (!PlayerPrefs.HasKey("money"))
+        {
+            PlayerPrefs.SetFloat("money", 1000000);
+        }
+        MoneyTxt.text = PlayerPrefs.GetFloat("money").ToString("#,##0") + "원";
     }
 }
