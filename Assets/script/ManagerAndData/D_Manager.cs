@@ -30,10 +30,6 @@ public class D_Manager {
     {
         obj.SetActive(false);
     }
-    public void ObjectSetActiveTrue(GameObject obj)
-    {
-        obj.SetActive(true);
-    }
     public void setDiceValue(int value)
     {
         DiceValue = value;
@@ -50,7 +46,7 @@ public class D_Manager {
     {
         return TempMoveCountindex;
     }
-    public void UI_ResultTextSetting(int MarbleCount)
+    public void UI_ResultTextSetting(int MarbleCount) //첫번째 기본적인 텍스트
     {
         AllMarbleData._instance.testImage.SetActive(true);
         if (MarbleCount == 0)
@@ -62,7 +58,7 @@ public class D_Manager {
             AllMarbleData._instance.UI_ResultText.text = EventClass._instance.eventText[MarbleCount - 1];
         }
     }
-    public void UI_REsultText2(int MarbleCount)
+    public void UI_REsultText2(int MarbleCount) //두번째 결과 텍스트
     {
         if(MarbleCount == 0)
         {

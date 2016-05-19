@@ -1,0 +1,122 @@
+-debug
+-target:library
+-nowarn:0169
+-out:Temp/Assembly-CSharp-Editor.dll
+-r:E:/Unity3D/Editor/Data/Managed/UnityEngine.dll
+-r:E:/Unity3D/Editor/Data/Managed/UnityEditor.dll
+-r:Library/ScriptAssemblies/Assembly-CSharp.dll
+-r:Library/ScriptAssemblies/Assembly-UnityScript.dll
+-r:E:/Unity3D/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll
+-r:E:/Unity3D/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll
+-r:E:/Unity3D/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll
+-r:E:/Unity3D/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+-r:E:/Unity3D/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll
+-r:E:/Unity3D/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+-r:E:/Unity3D/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll
+-r:E:/Unity3D/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll
+-r:"Assets/GUI Animator/Common/Plugins/GETween.dll"
+-r:"Assets/GUI Animator/GUI Animator FREE/Plugins/GUIAnimatorFREE.dll"
+-r:E:/Unity3D/Editor/Data/Managed/UnityEditor.Graphs.dll
+-r:E:/Unity3D/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+-r:E:/Unity3D/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+-r:E:/Unity3D/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+-r:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/2015/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
+-r:E:/Unity3D/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll
+-r:E:/Unity3D/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_3_4
+-define:UNITY_5_3
+-define:UNITY_5
+-define:ENABLE_NEW_BUGREPORTER
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_FRAME_DEBUGGER
+-define:ENABLE_GENERICS
+-define:ENABLE_HOME_SCREEN
+-define:ENABLE_IMAGEEFFECTS
+-define:ENABLE_LIGHT_PROBES_LEGACY
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_PLUGIN_INSPECTOR
+-define:ENABLE_SHADOWS
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:ENABLE_SPRITERENDERER_FLIPPING
+-define:ENABLE_SPRITES
+-define:ENABLE_SPRITE_POLYGON
+-define:ENABLE_TERRAIN
+-define:ENABLE_RAKNET
+-define:ENABLE_UNET
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_VR
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ADS
+-define:ENABLE_CLOUD_HUB
+-define:ENABLE_CLOUD_PROJECT_ID
+-define:ENABLE_CLOUD_SERVICES_PURCHASING
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_EDITOR_METRICS
+-define:ENABLE_EDITOR_METRICS_CACHING
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:INCLUDE_IL2CPP
+-define:INCLUDE_DIRECTX12
+-define:PLATFORM_SUPPORTS_MONO
+-define:ENABLE_LOCALIZATION
+-define:ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION
+-define:ENABLE_EDITOR_TESTS_RUNNER
+-define:UNITY_ANDROID
+-define:UNITY_ANDROID_API
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_EGL
+-define:ENABLE_NETWORK
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_LOG_MIXED_STACKTRACE
+-define:ENABLE_UNITYWEBREQUEST
+-define:PLATFORM_SUPPORTS_ADS_ID
+-define:ENABLE_UNITYADS_RUNTIME
+-define:UNITY_UNITYADS_API
+-define:ENABLE_MONO
+-define:ENABLE_PROFILER
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_WIN
+-define:ENABLE_DUCK_TYPING
+"Assets/TextMesh Pro/Editor/GlyphInfoDrawer.cs"
+"Assets/TextMesh Pro/Editor/KerningPairDrawer.cs"
+"Assets/TextMesh Pro/Editor/SpriteInfoDrawer.cs"
+"Assets/TextMesh Pro/Editor/TMP_EditorUtility.cs"
+"Assets/TextMesh Pro/Editor/TMP_FontAssetEditor.cs"
+"Assets/TextMesh Pro/Editor/TMP_InputFieldEditor.cs"
+"Assets/TextMesh Pro/Editor/TMP_SettingsEditor.cs"
+"Assets/TextMesh Pro/Editor/TMP_StyleSheetEditor.cs"
+"Assets/TextMesh Pro/Editor/TMP_SubMeshUI_Editor.cs"
+"Assets/TextMesh Pro/Editor/TMP_SubMesh_Editor.cs"
+"Assets/TextMesh Pro/Editor/TMP_UIStyleManager.cs"
+"Assets/TextMesh Pro/Editor/TMPro_ContextMenus.cs"
+"Assets/TextMesh Pro/Editor/TMPro_CreateObjectMenu.cs"
+"Assets/TextMesh Pro/Editor/TMPro_CreateSpriteAssetMenu.cs"
+"Assets/TextMesh Pro/Editor/TMPro_CreateStyleAssetMenu.cs"
+"Assets/TextMesh Pro/Editor/TMPro_EditorPanel.cs"
+"Assets/TextMesh Pro/Editor/TMPro_EditorShaderUtilities.cs"
+"Assets/TextMesh Pro/Editor/TMPro_FontAssetCreatorWindow.cs"
+"Assets/TextMesh Pro/Editor/TMPro_FontPlugin.cs"
+"Assets/TextMesh Pro/Editor/TMPro_SDFMaterialEditor.cs"
+"Assets/TextMesh Pro/Editor/TMPro_SortingLayerHelper.cs"
+"Assets/TextMesh Pro/Editor/TMPro_SpriteAssetEditor.cs"
+"Assets/TextMesh Pro/Editor/TMPro_TextContainerEditor.cs"
+"Assets/TextMesh Pro/Editor/TMPro_TexturePostProcessor.cs"
+"Assets/TextMesh Pro/Editor/TMPro_uiEditorPanel.cs"
+-r:E:\Unity3D\Editor\Data\Mono\lib\mono\2.0\System.Runtime.Serialization.dll
+-r:E:\Unity3D\Editor\Data\Mono\lib\mono\2.0\System.Xml.Linq.dll

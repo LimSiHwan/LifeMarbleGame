@@ -24,7 +24,7 @@ public class AllMarbleData : MonoBehaviour {
     //결과 touch이벤트
     public GameObject ResultTouchButton;
 
-    //능력치 UI
+    //능력치 UI text
     public Text ArtTxt;
     public Text StrengthTxt;
     public Text LovelyTxt;
