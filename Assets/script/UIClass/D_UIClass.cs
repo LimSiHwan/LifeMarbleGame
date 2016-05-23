@@ -13,7 +13,7 @@ public class D_UIClass : MonoBehaviour {
 
     void Start ()
     {
-        DiceStart = GameObject.Find("DiceButton").gameObject.GetComponent<Button>();
+        DiceStart = GameObject.Find("DiceBtn").gameObject.GetComponent<Button>();
         DiceStart.onClick.AddListener(() => { DiceGo(); });
         Touchbutton = GameObject.Find("EventButton").transform.FindChild("touchbutton").gameObject.GetComponent<Button>();
         Touchbutton.onClick.AddListener(() => { touchTextNext(); });

@@ -38,9 +38,9 @@ public class CameraZoomClass : MonoBehaviour {
     {
         ZoomIndelta += Time.deltaTime;
 
-        Cam.transform.position = Vector3.Lerp(new Vector3(Cam.transform.position.x, Cam.transform.position.y, Cam.transform.position.z), new Vector3(PlayerPos.transform.position.x + 23.51f, PlayerPos.position.y + 31.51f, PlayerPos.transform.position.z + 20.86f), ZoomIndelta);
+        Cam.transform.position = Vector3.Lerp(new Vector3(Cam.transform.position.x, Cam.transform.position.y, Cam.transform.position.z), new Vector3(PlayerPos.transform.position.x + 23.51f, PlayerPos.position.y + 31.51f, PlayerPos.transform.position.z + 20.86f), ZoomIndelta * 2);
 
-        Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 2.0f, ZoomIndelta);
+        Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 2.0f, ZoomIndelta * 2);
         if (ZoomIndelta > 1)
         {
             ZoomIndelta = 0;
@@ -50,8 +50,8 @@ public class CameraZoomClass : MonoBehaviour {
     {
         ZoomOutdelta1 += Time.deltaTime;
 
-        Cam.transform.position = Vector3.Lerp(new Vector3(Cam.transform.position.x, Cam.transform.position.y, Cam.transform.position.z), new Vector3(CamInitPos.x, CamInitPos.y, CamInitPos.z), ZoomOutdelta1);
-        Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 2.6f, ZoomOutdelta1);
+        Cam.transform.position = Vector3.Lerp(new Vector3(Cam.transform.position.x, Cam.transform.position.y, Cam.transform.position.z), new Vector3(CamInitPos.x, CamInitPos.y, CamInitPos.z), ZoomOutdelta1 * 2);
+        Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 2.6f, ZoomOutdelta1 * 2);
         if (ZoomOutdelta1 > 1)
         {
             ZoomOutdelta1 = 0;

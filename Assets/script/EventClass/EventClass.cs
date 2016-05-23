@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EventClass : MonoBehaviour {
 
@@ -9,45 +10,128 @@ public class EventClass : MonoBehaviour {
     
     int MonthMoney; //월급 카운트
     float MoneySuccesstemp;
-    // Use this for initialization
-    void Start () {
+
+    //능력치
+    int StatusArt;
+    int StatusEdu;
+    int StatusStrength;
+    int StatusLovely;
+    int StatusSkill;
+    List<int> Status = new List<int>();
+    void Start ()
+    {
         _instance = this;
         eventTextAdd();
         MonthMoney = 0;
+        StatusSetting();
+    }
+
+    void StatusSetting() //능력치가 높은 2개를 게임화면에 표시
+    {
+        Status.Clear();
+        StatusArt = PlayerPrefs.GetInt("art");
+        StatusEdu = PlayerPrefs.GetInt("edu");
+        StatusSkill = PlayerPrefs.GetInt("skill");
+        StatusLovely = PlayerPrefs.GetInt("lovely");
+        StatusStrength = PlayerPrefs.GetInt("strength");
+        Status.Add(StatusArt);
+        Status.Add(StatusEdu);
+        Status.Add(StatusSkill);
+        Status.Add(StatusLovely);
+        Status.Add(StatusStrength);
+        Status.Sort();
+
+        AllMarbleData._instance.StatSort1.text = Status[4].ToString();
+        AllMarbleData._instance.StatSort2.text = Status[3].ToString();
+        StatAllActiveFalse();
+
+        if (Status[4] == StatusArt)
+        {
+            AllMarbleData._instance.ArtImg.SetActive(true);
+        }else if(Status[4] == StatusEdu)
+        {
+            AllMarbleData._instance.EduImg.SetActive(true);
+        }
+        else if (Status[4] == StatusSkill)
+        {
+            AllMarbleData._instance.SkillImg.SetActive(true);
+        }
+        else if (Status[4] == StatusLovely)
+        {
+            AllMarbleData._instance.Lovelyimg.SetActive(true);
+        }
+        else if (Status[4] == StatusStrength)
+        {
+            AllMarbleData._instance.StrengthImg.SetActive(true);
+        }
+
+        if (Status[3] == StatusArt)
+        {
+            AllMarbleData._instance.ArtImg1.SetActive(true);
+        }
+        else if (Status[3] == StatusEdu)
+        {
+            AllMarbleData._instance.EduImg1.SetActive(true);
+        }
+        else if (Status[3] == StatusSkill)
+        {
+            AllMarbleData._instance.SkillImg1.SetActive(true);
+        }
+        else if (Status[3] == StatusLovely)
+        {
+            AllMarbleData._instance.Lovelyimg1.SetActive(true);
+        }
+        else if (Status[3] == StatusStrength)
+        {
+            AllMarbleData._instance.StrengthImg1.SetActive(true);
+        }
+    }
+    void StatAllActiveFalse() //능력치에관한 모든 이미지를 꺼준다.
+    {
+        AllMarbleData._instance.StrengthImg.SetActive(false);
+        AllMarbleData._instance.EduImg.SetActive(false);
+        AllMarbleData._instance.SkillImg.SetActive(false);
+        AllMarbleData._instance.Lovelyimg.SetActive(false);
+        AllMarbleData._instance.ArtImg.SetActive(false);
+        AllMarbleData._instance.StrengthImg1.SetActive(false);
+        AllMarbleData._instance.EduImg1.SetActive(false);
+        AllMarbleData._instance.SkillImg1.SetActive(false);
+        AllMarbleData._instance.Lovelyimg1.SetActive(false);
+        AllMarbleData._instance.ArtImg1.SetActive(false);
     }
     int LovelySuccess() //애정도 성공했을때
     {
         int Lovely = Random.Range(2, 5);
         PlayerPrefs.SetInt("lovely", PlayerPrefs.GetInt("lovely") + Lovely);
-        AllMarbleData._instance.LovelyTxt.text = PlayerPrefs.GetInt("lovely").ToString();
+        StatusSetting();
         return Lovely;
     }
     int EduSuccess()//학력 성공했을때
     {
         int Edu = Random.Range(3, 6);
         PlayerPrefs.SetInt("edu", PlayerPrefs.GetInt("edu") + Edu);
-        AllMarbleData._instance.EduTxt.text = PlayerPrefs.GetInt("edu").ToString();
+        StatusSetting();
         return Edu;
     }
     int StrengthSuccess()//체력 성공했을때
     {
         int Strength = Random.Range(3, 6);
         PlayerPrefs.SetInt("strength", PlayerPrefs.GetInt("strength") + Strength);
-        AllMarbleData._instance.StrengthTxt.text = PlayerPrefs.GetInt("strength").ToString();
+        StatusSetting();
         return Strength;
     }
     int ArtSuccess()//예술 성공했을때
     {
         int Art = Random.Range(3, 6);
         PlayerPrefs.SetInt("art", PlayerPrefs.GetInt("art") + Art);
-        AllMarbleData._instance.ArtTxt.text = PlayerPrefs.GetInt("art").ToString();
+        StatusSetting();
         return Art;
     }
     int SkillSuccess()//기술력 성공했을때
     {
         int Skill = Random.Range(3, 6);
         PlayerPrefs.SetInt("skill", PlayerPrefs.GetInt("skill") + Skill);
-        AllMarbleData._instance.SkillTxt.text = PlayerPrefs.GetInt("skill").ToString();
+        StatusSetting();
         return Skill;
     }
     float MoneySuccess(float money)//자금이 들어올때

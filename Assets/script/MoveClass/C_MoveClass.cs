@@ -57,7 +57,7 @@ public class C_MoveClass : MonoBehaviour {
                             CMR.Ch_Rotation();
                             _animator.SetBool("Jump", false);
                             MoveIndex++;
-                            yield return new WaitForSeconds(0.1f);
+                            yield return new WaitForSeconds(0.08f);
                         } else // 한칸씩 움직이기위해서
                         {
                             EndPos = new Vector3(AllMarbleData._instance.Marble[TempMoveCount + i].transform.position.x, 0.23f, AllMarbleData._instance.Marble[TempMoveCount + i].transform.position.z);
@@ -71,7 +71,7 @@ public class C_MoveClass : MonoBehaviour {
                             StartPos = EndPos;
                             CMR.Ch_Rotation();
                             _animator.SetBool("Jump", false);
-                            yield return new WaitForSeconds(0.1f);
+                            yield return new WaitForSeconds(0.08f);
                         }
                     }
                     TempMoveCount = (TempMoveCount + MoveCount) % 32;
@@ -91,10 +91,11 @@ public class C_MoveClass : MonoBehaviour {
                         StartPos = EndPos;
                         CMR.Ch_Rotation();
                         _animator.SetBool("Jump", false);
-                        yield return new WaitForSeconds(0.1f);
+                        yield return new WaitForSeconds(0.08f);
                     }
                     TempMoveCount = MoveCount + TempMoveCount;
                 }
+                AllMarbleData._instance.UICanvasOBj.SetActive(true);
                 D_Manager.Instance.setTempMoveCount(TempMoveCount); //위치를 저장
                 MoveIndex = 0; //다시 초기화해준다. 임이의 index값
                 D_Manager.Instance.MoveChk = false; //움직임이 끝났다.

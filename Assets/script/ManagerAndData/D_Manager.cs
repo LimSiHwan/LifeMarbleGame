@@ -30,6 +30,10 @@ public class D_Manager {
     {
         obj.SetActive(false);
     }
+    public void ObjectSetActiveTrue(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
     public void setDiceValue(int value)
     {
         DiceValue = value;

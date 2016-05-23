@@ -34,6 +34,7 @@ public class DiceClass : MonoBehaviour {
         yield return new WaitForSeconds(1.2f);
         D_Manager.Instance.DiceValueChk = true;
         D_Manager.Instance.ObjectSetActiveFalse(AllMarbleData._instance.DiceButton); //주사위 버튼 비활성화
+        AllMarbleData._instance.UICanvasOBj.SetActive(false);
     }
     void Fire() //주사위를 던집니다.
     {
