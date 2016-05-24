@@ -71,7 +71,7 @@ public class C_MoveClass : MonoBehaviour {
                             StartPos = EndPos;
                             CMR.Ch_Rotation();
                             _animator.SetBool("Jump", false);
-                            yield return new WaitForSeconds(0.08f);
+                            yield return new WaitForSeconds(0.08f); // << TEST 중 0.08
                         }
                     }
                     TempMoveCount = (TempMoveCount + MoveCount) % 32;

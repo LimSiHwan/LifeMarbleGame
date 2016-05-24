@@ -44,11 +44,11 @@ public class AllMarbleData : MonoBehaviour {
     public GameObject SkillImg1;
     public GameObject StrengthImg1;
     public GameObject Lovelyimg1;
-
-    //UI오브젝트 setTrue,false 활용
+    
 
     void Awake ()
     {
+        PlayerPrefs.DeleteAll();
         _instance = this;
         RandomIndex = Random.Range(1, 5);
         Player_Ch = Instantiate(Resources.Load("Character/Player_0" + RandomIndex, typeof(GameObject))) as GameObject;
@@ -91,6 +91,6 @@ public class AllMarbleData : MonoBehaviour {
             PlayerPrefs.SetFloat("money", 1000000);
         }
         MoneyTxt.text = PlayerPrefs.GetFloat("money").ToString("#,##0") + "원";
-        
-    }
+
+}
 }

@@ -44,11 +44,11 @@ public class EventClass : MonoBehaviour {
         AllMarbleData._instance.StatSort1.text = Status[4].ToString();
         AllMarbleData._instance.StatSort2.text = Status[3].ToString();
         StatAllActiveFalse();
-
         if (Status[4] == StatusArt)
         {
             AllMarbleData._instance.ArtImg.SetActive(true);
-        }else if(Status[4] == StatusEdu)
+        }
+        else if(Status[4] == StatusEdu)
         {
             AllMarbleData._instance.EduImg.SetActive(true);
         }
@@ -65,13 +65,13 @@ public class EventClass : MonoBehaviour {
             AllMarbleData._instance.StrengthImg.SetActive(true);
         }
 
-        if (Status[3] == StatusArt)
-        {
-            AllMarbleData._instance.ArtImg1.SetActive(true);
-        }
-        else if (Status[3] == StatusEdu)
+        if (Status[3] == StatusEdu)
         {
             AllMarbleData._instance.EduImg1.SetActive(true);
+        }
+        else if (Status[3] == StatusArt)
+        {
+            AllMarbleData._instance.ArtImg1.SetActive(true);
         }
         else if (Status[3] == StatusSkill)
         {
