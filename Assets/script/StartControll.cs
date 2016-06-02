@@ -8,7 +8,8 @@ public class StartControll : MonoBehaviour {
     Animation anim;
    
     GameObject BackGround; //배경 소환
-    void Start () {
+    void Start ()
+    {
         //뒷 배경 소환
         BackGround = Instantiate(Resources.Load("BackGround/backGround01", typeof(GameObject))) as GameObject;
         BackGround.transform.position = Vector3.zero;
@@ -26,6 +27,9 @@ public class StartControll : MonoBehaviour {
             }
             D_Manager.Instance.DiceStart = true;
         }
+        //로그테스트
+        D_Manager.Instance.LogTextFunction("시작입니다.");
+
     }
     IEnumerator AnimationMarble()
     {

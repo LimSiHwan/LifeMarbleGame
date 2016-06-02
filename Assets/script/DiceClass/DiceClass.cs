@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DiceClass : MonoBehaviour {
-  
+public class DiceClass : MonoBehaviour
+{
+
     public float forceAmount = 10.0f;
     public ForceMode forceMode;
     Rigidbody D_Rg;
-   
-	void Start ()
+
+    void Start()
     {
         D_Rg = this.gameObject.GetComponent<Rigidbody>();
         StartCoroutine(RotateDice());
-	}
+    }
     IEnumerator RotateDice()
     {
         while (true)
@@ -40,7 +41,7 @@ public class DiceClass : MonoBehaviour {
     {
         D_Rg.WakeUp();
         D_Rg.useGravity = true;
-        D_Rg.AddForce(new Vector3(1,0,0) * forceAmount, forceMode);
+        D_Rg.AddForce(new Vector3(1, 0, 0) * forceAmount, forceMode);
     }
     public void DiceInitSetting() //주사위 다시 셋팅
     {

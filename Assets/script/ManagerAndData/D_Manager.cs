@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class D_Manager {
     private static D_Manager inst;
@@ -17,6 +18,7 @@ public class D_Manager {
     }
     private D_Manager()
     {
+
     }
     
     public bool DiceStart = false;
@@ -26,6 +28,12 @@ public class D_Manager {
     public int DiceValue;
     int TempMoveCountindex;
 
+    //로그텍스트
+    List<string> LogTemp = new List<string>();
+    string tempLogTxt;
+
+    //랜덤 미션
+    public int RandomMissionIndex;
     public void ObjectSetActiveFalse(GameObject obj)
     {
         obj.SetActive(false);
@@ -72,5 +80,17 @@ public class D_Manager {
         {
             EventClass._instance.ResultTextAdd(MarbleCount);
         }
+    }
+    public void LogTextFunction(string msg)
+    {
+        if(tempLogTxt == null)
+        {
+            AllMarbleData._instance.LogTxt.text = "\n" + msg;
+        }
+        else
+        {
+            AllMarbleData._instance.LogTxt.text = tempLogTxt + "\n" + msg;
+        }
+        tempLogTxt = tempLogTxt + "\n" + msg;
     }
 }

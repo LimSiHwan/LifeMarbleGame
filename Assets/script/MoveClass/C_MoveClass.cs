@@ -38,6 +38,7 @@ public class C_MoveClass : MonoBehaviour {
                 yield return new WaitForSeconds(0.5f);
                 StartPos = gameObject.transform.position;
                 MoveCount = D_Manager.Instance.getDiceValue(); //주사위 값.
+                D_Manager.Instance.LogTextFunction("주사위 : " + MoveCount + " 입니다.");
                 float deltatime = Time.deltaTime * delaytime;
                 if (TempMoveCount + MoveCount > 31) // 31칸 초과라면
                 {
@@ -45,6 +46,7 @@ public class C_MoveClass : MonoBehaviour {
                     {
                         if(TempMoveCount + i > 31) //ex) 31 + 1 이라면 32이다. 마블에선 32 == 0 이기때문에..
                         {
+                            AudioSource.PlayClipAtPoint(AllMarbleData._instance.JumpSound, transform.position);
                             EndPos = new Vector3(AllMarbleData._instance.Marble[MoveIndex].transform.position.x, 0.23f, AllMarbleData._instance.Marble[MoveIndex].transform.position.z);
                             for (time = 0.0f; time <= 1.0f + deltatime; time += deltatime)
                             {
@@ -60,6 +62,7 @@ public class C_MoveClass : MonoBehaviour {
                             yield return new WaitForSeconds(0.08f);
                         } else // 한칸씩 움직이기위해서
                         {
+                            AudioSource.PlayClipAtPoint(AllMarbleData._instance.JumpSound, transform.position);
                             EndPos = new Vector3(AllMarbleData._instance.Marble[TempMoveCount + i].transform.position.x, 0.23f, AllMarbleData._instance.Marble[TempMoveCount + i].transform.position.z);
                             for (time = 0.0f; time <= 1.0f + deltatime; time += deltatime)
                             {
@@ -80,6 +83,7 @@ public class C_MoveClass : MonoBehaviour {
                 {
                     for (int i = MoveCount - 1; i >= 0; i--)
                     {
+                        AudioSource.PlayClipAtPoint(AllMarbleData._instance.JumpSound, transform.position);
                         EndPos = new Vector3(AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.x, 0.23f, AllMarbleData._instance.Marble[(MoveCount + TempMoveCount) - i].transform.position.z);
                         for (time = 0.0f; time <= 1.0f + deltatime; time += deltatime)
                         {
@@ -102,7 +106,9 @@ public class C_MoveClass : MonoBehaviour {
                 D_Manager.Instance.DiceStart = true; //스타트 할 수 있다.
                 diceClass.DiceInitSetting(); //주사위 다시 셋팅
                 D_Manager.Instance.UI_ResultTextSetting(TempMoveCount); //테스트용 이벤트 텍스트
-                AllMarbleData._instance.ResultTouchButton.SetActive(true); //터치 버튼 활성화
+                AllMarbleData._instance.M_Success.SetActive(true);//미션수행 활성화
+                AllMarbleData._instance.M_Fail.SetActive(true);//미션무시 활성화
+                AllMarbleData._instance.FailTxt.text = "무시";
             }
             yield return new WaitForEndOfFrame();
         }
